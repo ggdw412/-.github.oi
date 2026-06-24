@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>注册 - 花漾时光</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/login.css" />
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="container clearfix">
+        <div class="nav-logo" onclick="location.href = 'index.html'">
+          <img src="images/logo.png" alt="logo" />
+          <span class="logo-text">花漾时光</span>
+        </div>
+        <div class="nav-menu">
+          <a href="index.html">首页</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">鲜花 ▼</a>
+            <div class="dropdown-content">
+              <a href="list.html">全部鲜花</a>
+              <a href="list.html?cate=玫瑰系列">🌹 玫瑰</a>
+              <a href="list.html?cate=百合系列">🌷 百合</a>
+              <a href="list.html?cate=康乃馨系列">🌺 康乃馨</a>
+              <a href="list.html?cate=混合花束">🌸 混合</a>
+              <a href="list.html?cate=小雏菊系列">🌼 小雏菊</a>
+              <a href="list.html?cate=绿植盆栽">🌿 绿植</a>
+              <a href="list.html?cate=节日礼盒">🎁 礼盒</a>
+            </div>
+          </div>
+          <a href="cart.html">购物车</a>
+          <a href="#footer">关于我们</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">管理 ▼</a>
+            <div class="dropdown-content">
+              <a href="admin.html">商品管理</a>
+              <a href="admin-add.html">添加商品</a>
+              <a href="orders.html">订单管理</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索..." /><button
+              id="searchBtn"
+            >
+              🔍
+            </button>
+          </div>
+          <span class="cart-icon" onclick="location.href = 'cart.html'"
+            >🛒 <span class="num cart-num">0</span></span
+          >
+          <span class="user-area" id="userArea"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-box">
+        <div class="form-hd">
+          <h2>用户注册</h2>
+          <p>创建账号，开启花艺之旅</p>
+        </div>
+        <div class="form-item">
+          <input type="text" id="regUser" placeholder="请设置用户名" />
+        </div>
+        <div class="form-item">
+          <input type="text" id="regPhone" placeholder="请输入手机号" />
+        </div>
+        <div class="form-item">
+          <input type="password" id="regPwd" placeholder="请设置密码" />
+        </div>
+        <div class="form-item">
+          <input type="password" id="regPwd2" placeholder="请确认密码" />
+        </div>
+        <div class="tip" id="regTip"></div>
+        <button id="regBtn" class="btn-primary submit-btn">立即注册</button>
+        <div class="form-foot">已有账号？<a href="login.html">立即登录</a></div>
+      </div>
+    </div>
+
+    <div class="footer" id="footer">
+      <div class="container footer-content">
+        <div class="footer-col">
+          <h4>联系我们</h4>
+          <p>客服热线：400-888-9999</p>
+          <p>邮箱：service@huayang.com</p>
+          <p>地址：浙江省绍兴市越城区</p>
+        </div>
+        <div class="footer-col">
+          <h4>服务保障</h4>
+          <p>新鲜直达</p>
+          <p>售后无忧</p>
+          <p>品质保证</p>
+        </div>
+        <div class="footer-col">
+          <h4>帮助中心</h4>
+          <p>购物流程</p>
+          <p>配送说明</p>
+          <p>退换货政策</p>
+        </div>
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <p>微信公众号：花漾时光</p>
+          <p>微博：@花漾时光花艺</p>
+          <p>小红书：花漾时光</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>
+          © 花漾时光 Floral Time 版权所有 | 班级：大数据241 学号：24536101
+          姓名：陈荟蓉
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/login.js"></script>
+  </body>
+</html>

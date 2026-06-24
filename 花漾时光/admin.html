@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>商品管理 - 花漾时光后台</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/admin.css" />
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="container clearfix">
+        <div class="nav-logo" onclick="location.href = 'index.html'">
+          <img src="images/logo.png" alt="logo" />
+          <span class="logo-text">花漾时光</span>
+        </div>
+        <div class="nav-menu">
+          <a href="index.html">首页</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">鲜花 ▼</a>
+            <div class="dropdown-content">
+              <a href="list.html">全部鲜花</a>
+              <a href="list.html?cate=玫瑰系列">🌹 玫瑰</a>
+              <a href="list.html?cate=百合系列">🌷 百合</a>
+              <a href="list.html?cate=康乃馨系列">🌺 康乃馨</a>
+              <a href="list.html?cate=混合花束">🌸 混合</a>
+              <a href="list.html?cate=小雏菊系列">🌼 小雏菊</a>
+              <a href="list.html?cate=绿植盆栽">🌿 绿植</a>
+              <a href="list.html?cate=节日礼盒">🎁 礼盒</a>
+            </div>
+          </div>
+          <a href="cart.html">购物车</a>
+          <a href="#footer">关于我们</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn active">管理 ▼</a>
+            <div class="dropdown-content">
+              <a href="admin.html" class="active">商品管理</a>
+              <a href="admin-add.html">添加商品</a>
+              <a href="orders.html">订单管理</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索商品..." />
+            <button id="searchBtn">🔍</button>
+          </div>
+          <span class="cart-icon" onclick="location.href = 'cart.html'"
+            >🛒 <span class="num cart-num">0</span></span
+          >
+          <span class="user-area" id="userArea"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-main container">
+      <div class="admin-header">
+        <div class="admin-header-left">
+          <h3 class="page-title">📋 商品管理</h3>
+          <div class="admin-stats">
+            <span class="stat-badge"
+              >📦 总计 <strong id="statTotal">0</strong> 件</span
+            >
+            <span class="stat-badge"
+              >📊 库存 <strong id="statStock">0</strong></span
+            >
+            <span class="stat-badge"
+              >🏷️ 分类 <strong id="statCate">0</strong></span
+            >
+            <span class="stat-badge"
+              >💰 均价 <strong id="statAvgPrice">¥0</strong></span
+            >
+            <span
+              class="stat-badge"
+              style="background: #eaf4fc; border-color: #3a8bcd"
+              >💎 总价值
+              <strong id="statTotalValue" style="color: #2b6fa8"
+                >¥0</strong
+              ></span
+            >
+          </div>
+        </div>
+        <div class="admin-header-right">
+          <button
+            class="btn-primary"
+            onclick="location.href = 'admin-add.html'"
+          >
+            <span style="font-size: 18px; margin-right: 4px">＋</span> 添加商品
+          </button>
+          <button class="btn-plain" id="refreshBtn">
+            <span style="font-size: 16px; margin-right: 4px">🔄</span> 刷新
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="admin-table" id="adminTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>图片</th>
+              <th>名称</th>
+              <th>分类</th>
+              <th>价格</th>
+              <th>库存</th>
+              <th>产地</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="adminTbody"></tbody>
+        </table>
+        <div class="table-empty" id="tableEmpty" style="display: none">
+          <p>📭 暂无商品数据，<a href="admin-add.html">添加第一个商品</a></p>
+        </div>
+      </div>
+      <div class="page-box" id="pageBox">
+        <span class="page-btn" id="prevPage">上一页</span>
+        <span class="page-num active" data-page="1">1</span>
+        <span class="page-btn" id="nextPage">下一页</span>
+      </div>
+    </div>
+
+    <div class="footer" id="footer">
+      <div class="container footer-content">
+        <div class="footer-col">
+          <h4>联系我们</h4>
+          <p>客服热线：400-888-9999</p>
+          <p>邮箱：service@huayang.com</p>
+          <p>地址：浙江省绍兴市越城区</p>
+        </div>
+        <div class="footer-col">
+          <h4>服务保障</h4>
+          <p>新鲜直达</p>
+          <p>售后无忧</p>
+          <p>品质保证</p>
+        </div>
+        <div class="footer-col">
+          <h4>帮助中心</h4>
+          <p>购物流程</p>
+          <p>配送说明</p>
+          <p>退换货政策</p>
+        </div>
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <p>微信公众号：花漾时光</p>
+          <p>微博：@花漾时光花艺</p>
+          <p>小红书：花漾时光</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>
+          © 花漾时光 Floral Time 版权所有 | 班级：大数据241 学号：24536101
+          姓名：陈荟蓉
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/admin.js"></script>
+  </body>
+</html>

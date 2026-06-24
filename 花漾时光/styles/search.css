@@ -1,0 +1,313 @@
+/* ===== search.css - 搜索页样式 ===== */
+.search-main {
+  padding: 20px 0 40px;
+}
+.search-hero {
+  background: linear-gradient(135deg, #eaf4fc 0%, #d9e8f5 100%);
+  border-radius: 20px;
+  padding: 50px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 24px rgba(58, 139, 205, 0.12);
+  text-align: center;
+}
+.search-box-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.search-box {
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  border-radius: 50px;
+  padding: 6px 6px 6px 24px;
+  box-shadow: 0 6px 20px rgba(58, 139, 205, 0.15);
+}
+.search-box input {
+  flex: 1;
+  height: 54px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #2c3e50;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  background: transparent;
+}
+.search-box input::placeholder {
+  color: #a0b8cc;
+}
+.search-box button {
+  padding: 0 36px;
+  height: 54px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #3a8bcd 0%, #5aa3db 100%);
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.search-box button:hover {
+  background: linear-gradient(90deg, #2b6fa8 0%, #3a8bcd 100%);
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px rgba(58, 139, 205, 0.35);
+}
+.search-hint {
+  margin-top: 18px;
+  color: #5a7184;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.search-hint span {
+  display: inline-block;
+  margin-right: 4px;
+}
+.hot-tag {
+  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 0 4px;
+  font-size: 14px;
+  color: #2b6fa8;
+}
+.hot-tag:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(58, 139, 205, 0.15);
+}
+.result-header {
+  padding: 16px 0 20px;
+  border-bottom: 2px solid #e0edf8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.result-count {
+  color: #2c5282;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.result-count strong {
+  color: #e74c3c;
+  font-size: 20px;
+}
+.result-keyword {
+  color: #718daa;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.result-keyword em {
+  color: #3a8bcd;
+  font-style: normal;
+  font-weight: 600;
+}
+.goods-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  min-height: 200px;
+}
+.goods-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0edf8;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.goods-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(58, 139, 205, 0.18);
+  border-color: #9fc8e8;
+}
+.goods-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.goods-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.goods-card:hover .goods-img img {
+  transform: scale(1.08);
+}
+.flower-lang {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 12px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(30, 58, 95, 0.8) 100%
+  );
+  color: #fff;
+  font-size: 13px;
+  line-height: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  letter-spacing: 1px;
+}
+.goods-card:hover .flower-lang {
+  opacity: 1;
+  transform: translateY(0);
+}
+.flower-lang::before {
+  content: "💐 花语";
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+.goods-info {
+  padding: 16px;
+  text-align: center;
+}
+.goods-name {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.goods-name mark {
+  background: #f9e497;
+  padding: 0 2px;
+}
+.goods-price {
+  font-size: 20px;
+  color: #e74c3c;
+  font-weight: 600;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+.buy-btn {
+  width: 100%;
+  height: 36px;
+  border: none;
+  background: linear-gradient(90deg, #3a8bcd 0%, #5aa3db 100%);
+  color: #fff;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.buy-btn:hover {
+  background: linear-gradient(90deg, #2b6fa8 0%, #3a8bcd 100%);
+  box-shadow: 0 4px 10px rgba(58, 139, 205, 0.3);
+}
+.buy-btn.disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.buy-btn.disabled:hover {
+  background: #ccc;
+  box-shadow: none;
+}
+.sold-out-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e74c3c;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+.goods-card .goods-stock-info {
+  font-size: 12px;
+  color: #718daa;
+  margin-bottom: 6px;
+}
+.no-result {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 80px 20px;
+  color: #718daa;
+}
+.no-result-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+.no-result p {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.no-result-hint {
+  font-size: 15px !important;
+  color: #a0b8cc;
+  margin-top: 10px;
+}
+.no-result-hint a {
+  color: #3a8bcd;
+  cursor: pointer;
+}
+.no-result-hint a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .goods-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .goods-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .search-hero {
+    padding: 30px 20px;
+  }
+  .search-box {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 6px;
+    background: #fff;
+  }
+  .search-box input {
+    height: 48px;
+    padding: 0 18px;
+    font-size: 16px;
+    border-radius: 24px;
+    border: 1px solid #c9e0f2;
+  }
+  .search-box button {
+    height: 48px;
+    border-radius: 24px;
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  .search-hint {
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .goods-list {
+    grid-template-columns: 1fr;
+  }
+}

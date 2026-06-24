@@ -1,0 +1,218 @@
+/* ===== order.css - 订单页样式 ===== */
+.order-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+.sec-hd {
+  font-size: 17px;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.addr-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.addr-item {
+  padding: 18px;
+  border: 2px solid #e0edf8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+.addr-item:hover,
+.addr-item.active {
+  border-color: #3a8bcd;
+  background: #f7fbff;
+}
+.addr-name {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.addr-name span {
+  font-size: 14px;
+  color: #718daa;
+  font-weight: normal;
+  margin-left: 10px;
+}
+.addr-detail {
+  color: #5a7184;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.addr-del {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  color: #c9c9c9;
+  cursor: pointer;
+  font-size: 12px;
+  transition: color 0.3s;
+}
+.addr-del:hover {
+  color: #e74c3c;
+}
+.btn-add-addr {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #fff;
+  color: #3a8bcd;
+  border: 2px dashed #c9e0f2;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+.btn-add-addr:hover {
+  border-color: #3a8bcd;
+  background: #f7fbff;
+}
+.addr-form-wrap {
+  display: none;
+  background: #f9fcfd;
+  border: 2px solid #c9e0f2;
+  border-radius: 10px;
+  padding: 22px 25px;
+  margin-bottom: 18px;
+}
+.addr-form-wrap.show {
+  display: block;
+}
+.addr-form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 14px;
+}
+.addr-form-row input {
+  flex: 1;
+  height: 44px;
+  border: 2px solid #c9e0f2;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+.addr-form-row input:focus {
+  border-color: #3a8bcd;
+}
+.addr-form-btns {
+  text-align: right;
+  margin-top: 14px;
+}
+.addr-form-btns button {
+  margin-left: 12px;
+}
+.pay-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.pay-item {
+  padding: 20px 15px;
+  border: 2px solid #e0edf8;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 16px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.pay-item:hover,
+.pay-item.active {
+  border-color: #3a8bcd;
+  background: #f7fbff;
+  color: #2b6fa8;
+  font-weight: 500;
+}
+.pay-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+.goods-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f5fa;
+}
+.goods-row:last-child {
+  border-bottom: none;
+}
+.goods-row img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 15px;
+}
+.goods-row .name {
+  flex: 1;
+  color: #2c3e50;
+  font-size: 15px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.goods-row .num {
+  width: 80px;
+  text-align: center;
+  color: #718daa;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.goods-row .price {
+  width: 100px;
+  text-align: right;
+  color: #e74c3c;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.order-foot {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.summary {
+  font-size: 15px;
+  color: #5a7184;
+  line-height: 2;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.summary .total {
+  font-size: 17px;
+}
+.summary .total span {
+  color: #e74c3c;
+  font-size: 26px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.order-foot .btn-primary {
+  width: 180px;
+  height: 48px;
+  font-size: 17px;
+  letter-spacing: 3px;
+}

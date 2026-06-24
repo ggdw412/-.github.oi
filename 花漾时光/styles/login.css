@@ -1,0 +1,88 @@
+/* ===== login.css - 登录/注册样式 ===== */
+.form-wrap {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+}
+.form-box {
+  width: 1500px;
+  max-width: 96vw;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  padding: 85px 120px;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(58, 139, 205, 0.25);
+  border: 2px solid rgba(58, 139, 205, 0.32);
+}
+.form-hd {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.form-hd h2 {
+  font-size: 36px;
+  color: #2c5282;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: 6px;
+  white-space: nowrap;
+}
+.form-hd p {
+  color: #718daa;
+  font-size: 17px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+.form-item {
+  margin-bottom: 30px;
+}
+.form-item input {
+  width: 100%;
+  height: 62px;
+  border: 2px solid #c9e0f2;
+  border-radius: 14px;
+  padding: 0 28px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.form-item input:focus {
+  border-color: #3a8bcd;
+}
+.tip {
+  height: 24px;
+  color: #e74c3c;
+  font-size: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.submit-btn {
+  width: 100%;
+  height: 60px;
+  font-size: 19px;
+  letter-spacing: 6px;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+.form-foot {
+  text-align: center;
+  margin-top: 35px;
+  color: #718daa;
+  font-size: 16px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.form-foot a {
+  color: #3a8bcd;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}

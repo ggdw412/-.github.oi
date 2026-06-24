@@ -1,0 +1,337 @@
+/* ===== base.css - 公共样式 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "STKaiti", "华文楷体", "KaiTi", "楷体", "Noto Serif SC", serif;
+  color: #2c3e50;
+  font-size: 15px;
+  background: url("../images/background.jpg") center top / cover no-repeat fixed;
+  background-color: #f0f7fc;
+  min-height: 100vh;
+  letter-spacing: 0.5px;
+}
+a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  border: none;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ===== 顶部导航 ===== */
+.top-nav {
+  height: 60px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #d9e8f5;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  overflow: visible; /* 确保下拉菜单和徽章不被裁剪 */
+}
+.nav-logo {
+  float: left;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}
+.nav-logo img {
+  height: 42px;
+  width: auto;
+}
+.nav-logo .logo-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #2b6fa8;
+  letter-spacing: 3px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+.nav-menu {
+  float: left;
+  margin-left: 50px;
+  line-height: 60px;
+}
+.nav-menu a {
+  display: inline-block;
+  margin: 0 18px;
+  color: #5a7184;
+  font-size: 16px;
+  transition: color 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #3a8bcd;
+}
+.nav-right {
+  float: right;
+  line-height: 60px;
+}
+.search-bar {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.search-bar input {
+  width: 220px;
+  height: 34px;
+  border: 1px solid #c9e0f2;
+  border-radius: 17px;
+  padding: 0 40px 0 16px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.search-bar input:focus {
+  border-color: #3a8bcd;
+}
+.search-bar button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #718daa;
+}
+
+/* ===== 购物车图标（修复数字徽章） ===== */
+.cart-icon {
+  display: inline-block;
+  margin-right: 20px;
+  color: #5a7184;
+  font-size: 16px;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 4px 0; /* 增加上下内边距，防止徽章被裁剪 */
+}
+
+.cart-icon .num {
+  position: absolute;
+  top: -2px; /* 从 -8px 改为 -2px，数字徽章下移 */
+  right: -14px;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  text-align: center;
+  padding: 0 5px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.35);
+}
+
+.user-area {
+  display: inline-block;
+  color: #5a7184;
+  font-size: 15px;
+  vertical-align: middle;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.user-area a {
+  color: #3a8bcd;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* ===== 下拉菜单 ===== */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown .dropbtn {
+  display: inline-block;
+  margin: 0 18px;
+  color: #5a7184;
+  font-size: 16px;
+  transition: color 0.3s;
+  cursor: pointer;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.dropdown .dropbtn:hover {
+  color: #3a8bcd;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 160px;
+  max-width: 280px;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  z-index: 9999;
+  border: 1px solid #e0edf8;
+  padding: 6px 0;
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px 24px;
+  color: #2c3e50;
+  margin: 0 !important;
+  border-bottom: 1px solid #f0f5fa;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+.dropdown-content a:hover {
+  background: #f7fbff;
+  color: #3a8bcd;
+}
+.dropdown-content a.active {
+  background: #eaf4fc;
+  color: #2b6fa8;
+  font-weight: 500;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.nav-menu a.active,
+.dropdown .dropbtn.active {
+  color: #3a8bcd;
+}
+
+/* ===== 通用按钮 ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 30px;
+  background: linear-gradient(90deg, #3a8bcd 0%, #5aa3db 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(58, 139, 205, 0.25);
+  font-family: inherit;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: linear-gradient(90deg, #2b6fa8 0%, #3a8bcd 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(58, 139, 205, 0.35);
+}
+.btn-plain {
+  display: inline-block;
+  padding: 9px 28px;
+  background: #fff;
+  color: #3a8bcd;
+  border: 1px solid #3a8bcd;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.btn-plain:hover {
+  background: #eaf4fc;
+}
+.btn-back {
+  display: inline-block;
+  padding: 9px 22px;
+  background: #fff;
+  color: #5a7184;
+  border: 1px solid #c9e0f2;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.btn-back:hover {
+  background: #f7fbff;
+  border-color: #3a8bcd;
+  color: #3a8bcd;
+}
+
+/* ===== 底部 ===== */
+.footer {
+  margin-top: 60px;
+  background: #2c3e50;
+  color: #b8c5d1;
+  font-size: 14px;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 40px 0;
+  gap: 40px;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.footer-col p {
+  line-height: 30px;
+  cursor: pointer;
+  transition: color 0.3s;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.footer-col p:hover {
+  color: #5aa3db;
+}
+.footer-copyright {
+  border-top: 1px solid #3d5266;
+  padding: 20px 0;
+  text-align: center;
+  color: #8a9aa9;
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* toastr微调 */
+.toast-top-right {
+  top: 80px;
+}
