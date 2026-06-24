@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>花漾时光 - 鲜花商城</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <!-- ===== 顶部导航 ===== -->
+    <div class="top-nav">
+      <div class="container clearfix">
+        <div class="nav-logo" onclick="location.href = 'index.html'">
+          <img src="images/logo.png" alt="花漾时光logo" />
+          <span class="logo-text">花漾时光</span>
+        </div>
+        <div class="nav-menu">
+          <a class="active" href="index.html">首页</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">鲜花 ▼</a>
+            <div class="dropdown-content">
+              <a href="list.html">全部鲜花</a>
+              <a href="list.html?cate=玫瑰系列">🌹 玫瑰</a>
+              <a href="list.html?cate=百合系列">🌷 百合</a>
+              <a href="list.html?cate=康乃馨系列">🌺 康乃馨</a>
+              <a href="list.html?cate=混合花束">🌸 混合</a>
+              <a href="list.html?cate=小雏菊系列">🌼 小雏菊</a>
+              <a href="list.html?cate=绿植盆栽">🌿 绿植</a>
+              <a href="list.html?cate=节日礼盒">🎁 礼盒</a>
+            </div>
+          </div>
+          <a href="cart.html">购物车</a>
+          <a href="#footer">关于我们</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">管理 ▼</a>
+            <div class="dropdown-content">
+              <a href="admin.html">商品管理</a>
+              <a href="admin-add.html">添加商品</a>
+              <a href="orders.html">订单管理</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <div class="search-bar">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="搜索花束、花语..."
+            />
+            <button id="searchBtn">🔍</button>
+          </div>
+          <span class="cart-icon" onclick="location.href = 'cart.html'"
+            >🛒 <span class="num cart-num">0</span></span
+          >
+          <span class="user-area" id="userArea"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 首页内容 ===== -->
+    <div id="page-index">
+      <!-- 轮播图 -->
+      <div class="banner">
+        <div class="banner-box container">
+          <div class="slide active">
+            <div class="slide-text">
+              <p class="s-sub">花花世界 · 万诱引力</p>
+              <h2 class="s-title">花之物语</h2>
+              <p class="s-desc">用一生去遗憾 不如花一份关爱</p>
+              <a class="btn-primary" href="list.html">进入鲜花专区 →</a>
+            </div>
+            <div class="slide-img"><img src="images/banner1.jpg" alt="" /></div>
+          </div>
+          <div class="slide">
+            <div class="slide-text">
+              <p class="s-sub">春日限定 · 新鲜直达</p>
+              <h2 class="s-title">春日花礼</h2>
+              <p class="s-desc">云南基地现采 48小时冷链配送</p>
+              <a class="btn-primary" href="list.html">查看新品 →</a>
+            </div>
+            <div class="slide-img"><img src="images/banner2.jpg" alt="" /></div>
+          </div>
+          <div class="slide">
+            <div class="slide-text">
+              <p class="s-sub">心意之选 · 浪漫告白</p>
+              <h2 class="s-title">以花之名</h2>
+              <p class="s-desc">每一束花都藏着未说出口的温柔</p>
+              <a class="btn-primary" href="list.html">立即选购 →</a>
+            </div>
+            <div class="slide-img"><img src="images/banner3.jpg" alt="" /></div>
+          </div>
+          <div class="dots">
+            <span class="dot active"></span><span class="dot"></span
+            ><span class="dot"></span>
+          </div>
+          <div class="arrow prev">&lt;</div>
+          <div class="arrow next">&gt;</div>
+        </div>
+      </div>
+
+      <!-- 商品列表 -->
+      <div class="goods-section container" id="goodsSection">
+        <h3 class="sec-title" id="goodsTitle">全部鲜花</h3>
+        <div class="goods-list" id="goodsList"></div>
+        <div class="page-box">
+          <span class="page-btn" id="prevPage">上一页</span>
+          <span class="page-num active" data-page="1">1</span>
+          <span class="page-btn" id="nextPage">下一页</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 底部 ===== -->
+    <div class="footer" id="footer">
+      <div class="container footer-content">
+        <div class="footer-col">
+          <h4>联系我们</h4>
+          <p>客服热线：400-888-9999</p>
+          <p>邮箱：service@huayang.com</p>
+          <p>地址：浙江省绍兴市越城区</p>
+        </div>
+        <div class="footer-col">
+          <h4>服务保障</h4>
+          <p>新鲜直达</p>
+          <p>售后无忧</p>
+          <p>品质保证</p>
+        </div>
+        <div class="footer-col">
+          <h4>帮助中心</h4>
+          <p>购物流程</p>
+          <p>配送说明</p>
+          <p>退换货政策</p>
+        </div>
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <p>微信公众号：花漾时光</p>
+          <p>微博：@花漾时光花艺</p>
+          <p>小红书：花漾时光</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>
+          © 花漾时光 Floral Time 版权所有 | 班级：大数据241 学号：24536101
+          姓名：陈荟蓉
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

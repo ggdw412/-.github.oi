@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>添加商品 - 花漾时光后台</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/admin-add.css" />
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="container clearfix">
+        <div class="nav-logo" onclick="location.href = 'index.html'">
+          <img src="images/logo.png" alt="logo" />
+          <span class="logo-text">花漾时光</span>
+        </div>
+        <div class="nav-menu">
+          <a href="index.html">首页</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">鲜花 ▼</a>
+            <div class="dropdown-content">
+              <a href="list.html">全部鲜花</a>
+              <a href="list.html?cate=玫瑰系列">🌹 玫瑰</a>
+              <a href="list.html?cate=百合系列">🌷 百合</a>
+              <a href="list.html?cate=康乃馨系列">🌺 康乃馨</a>
+              <a href="list.html?cate=混合花束">🌸 混合</a>
+              <a href="list.html?cate=小雏菊系列">🌼 小雏菊</a>
+              <a href="list.html?cate=绿植盆栽">🌿 绿植</a>
+              <a href="list.html?cate=节日礼盒">🎁 礼盒</a>
+            </div>
+          </div>
+          <a href="cart.html">购物车</a>
+          <a href="#footer">关于我们</a>
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn active">管理 ▼</a>
+            <div class="dropdown-content">
+              <a href="admin.html">商品管理</a>
+              <a href="admin-add.html" class="active">添加商品</a>
+              <a href="orders.html">订单管理</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <span class="cart-icon" onclick="location.href = 'cart.html'"
+            >🛒 <span class="num cart-num">0</span></span
+          >
+          <span class="user-area" id="userArea"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-add-main container">
+      <div class="form-header">
+        <h3 class="page-title" id="formTitle">➕ 添加商品</h3>
+        <div class="form-actions">
+          <button class="btn-plain" onclick="location.href = 'admin.html'">
+            ← 返回管理
+          </button>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <form id="goodsForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>商品名称 <span class="required">*</span></label
+              ><input
+                type="text"
+                id="fName"
+                placeholder="如：红玫瑰花束 11枝"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>分类 <span class="required">*</span></label
+              ><select id="fCategory" required>
+                <option value="">请选择</option>
+                <option value="玫瑰系列">玫瑰系列</option>
+                <option value="百合系列">百合系列</option>
+                <option value="康乃馨系列">康乃馨系列</option>
+                <option value="混合花束">混合花束</option>
+                <option value="小雏菊系列">小雏菊系列</option>
+                <option value="绿植盆栽">绿植盆栽</option>
+                <option value="节日礼盒">节日礼盒</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>价格 (元) <span class="required">*</span></label
+              ><input
+                type="number"
+                id="fPrice"
+                placeholder="129"
+                min="0.01"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>库存 <span class="required">*</span></label
+              ><input
+                type="number"
+                id="fStock"
+                placeholder="86"
+                min="0"
+                step="1"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>产地</label
+              ><input type="text" id="fOrigin" placeholder="云南昆明" />
+            </div>
+            <div class="form-group">
+              <label>规格</label
+              ><input type="text" id="fSpec" placeholder="11枝/束" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>商品简介 <span class="required">*</span></label
+            ><textarea
+              id="fDesc"
+              rows="2"
+              placeholder="简要描述..."
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>花语寄语</label
+            ><textarea
+              id="fLang"
+              rows="2"
+              placeholder="如：热恋与真心..."
+            ></textarea>
+          </div>
+
+          <!-- 图片选择 -->
+          <div class="form-group">
+            <label>商品图片 <span class="required">*</span></label>
+            <div class="img-select-wrap">
+              <div class="img-preview" id="imgPreview">
+                <img id="previewImg" src="pimg/p1.jpg" alt="预览" />
+                <div class="preview-overlay"><span>🖼️ 点击上传</span></div>
+              </div>
+              <div class="img-options">
+                <p class="img-hint">📁 选择已有图片：</p>
+                <div class="img-grid" id="imgGrid"></div>
+                <div class="img-custom">
+                  <div class="img-custom-row">
+                    <label>📝 输入文件名：</label>
+                    <input type="text" id="fImgCustom" placeholder="p1.jpg" />
+                    <button type="button" class="btn-plain" id="applyImgBtn">
+                      应用
+                    </button>
+                  </div>
+                  <div class="img-upload-row">
+                    <label>📤 上传图片：</label>
+                    <div class="upload-area" id="uploadArea">
+                      <span class="upload-icon">📤</span>
+                      <span class="upload-text">点击或拖拽上传</span>
+                      <span class="upload-hint">支持 JPG / PNG / GIF</span>
+                      <input type="file" id="fileUpload" accept="image/*" />
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="fImg" value="p1.jpg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary" id="submitBtn">
+              💾 保存商品
+            </button>
+            <button type="reset" class="btn-plain" id="resetBtn">
+              🔄 重置
+            </button>
+          </div>
+          <div class="form-tip" id="formTip"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer" id="footer">
+      <div class="container footer-content">
+        <div class="footer-col">
+          <h4>联系我们</h4>
+          <p>客服热线：400-888-9999</p>
+          <p>邮箱：service@huayang.com</p>
+          <p>地址：浙江省绍兴市越城区</p>
+        </div>
+        <div class="footer-col">
+          <h4>服务保障</h4>
+          <p>新鲜直达</p>
+          <p>售后无忧</p>
+          <p>品质保证</p>
+        </div>
+        <div class="footer-col">
+          <h4>帮助中心</h4>
+          <p>购物流程</p>
+          <p>配送说明</p>
+          <p>退换货政策</p>
+        </div>
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <p>微信公众号：花漾时光</p>
+          <p>微博：@花漾时光花艺</p>
+          <p>小红书：花漾时光</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>
+          © 花漾时光 Floral Time 版权所有 | 班级：大数据241 学号：24536101
+          姓名：陈荟蓉
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/admin-add.js"></script>
+  </body>
+</html>

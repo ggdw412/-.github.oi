@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <!-- 字符编码：统一使用UTF-8，支持中文 -->
+    <meta charset="UTF-8" />
+    <!-- 页面标题：显示在浏览器标签栏 -->
+    <title>登录 - 花漾时光</title>
+    <!-- 引入jQuery核心库 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 引入toastr通知插件样式（弹窗提示美化） -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <!-- 引入toastr通知插件脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- 引入全局公共样式（导航、底部、按钮、下拉菜单等） -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <!-- 引入登录/注册专用样式 -->
+    <link rel="stylesheet" href="styles/login.css" />
+  </head>
+  <body>
+    <!-- ================================================================
+         顶部导航栏（所有页面公用）
+         ================================================================ -->
+    <div class="top-nav">
+      <div class="container clearfix">
+        <!-- Logo区域：点击跳转首页 -->
+        <div class="nav-logo" onclick="location.href = 'index.html'">
+          <img src="images/logo.png" alt="logo" />
+          <span class="logo-text">花漾时光</span>
+        </div>
+
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+          <!-- 首页链接 -->
+          <a href="index.html">首页</a>
+
+          <!-- 鲜花分类下拉菜单 -->
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">鲜花 ▼</a>
+            <div class="dropdown-content">
+              <a href="list.html">全部鲜花</a>
+              <a href="list.html?cate=玫瑰系列">🌹 玫瑰</a>
+              <a href="list.html?cate=百合系列">🌷 百合</a>
+              <a href="list.html?cate=康乃馨系列">🌺 康乃馨</a>
+              <a href="list.html?cate=混合花束">🌸 混合</a>
+              <a href="list.html?cate=小雏菊系列">🌼 小雏菊</a>
+              <a href="list.html?cate=绿植盆栽">🌿 绿植</a>
+              <a href="list.html?cate=节日礼盒">🎁 礼盒</a>
+            </div>
+          </div>
+
+          <!-- 购物车链接 -->
+          <a href="cart.html">购物车</a>
+
+          <!-- 关于我们（页内锚点，跳转到底部） -->
+          <a href="#footer">关于我们</a>
+
+          <!-- 管理后台下拉菜单 -->
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">管理 ▼</a>
+            <div class="dropdown-content">
+              <a href="admin.html">商品管理</a>
+              <a href="admin-add.html">添加商品</a>
+              <a href="orders.html">订单管理</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧功能区：搜索框、购物车图标、用户状态 -->
+        <div class="nav-right">
+          <!-- 搜索框 -->
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索..." />
+            <button id="searchBtn">🔍</button>
+          </div>
+
+          <!-- 购物车图标：显示商品数量徽章（数字由JS动态更新） -->
+          <span class="cart-icon" onclick="location.href = 'cart.html'">
+            🛒 <span class="num cart-num">0</span>
+          </span>
+
+          <!-- 用户状态区域：显示登录/注册链接或用户名（由JS动态渲染） -->
+          <span class="user-area" id="userArea"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================
+         登录表单主体
+         ================================================================ -->
+    <div class="form-wrap">
+      <div class="form-box">
+        <!-- 表单头部：标题 + 副标题 -->
+        <div class="form-hd">
+          <h2>用户登录</h2>
+          <p>登录账号，选购心仪花束</p>
+        </div>
+
+        <!-- 用户名输入框 -->
+        <div class="form-item">
+          <input type="text" id="loginUser" placeholder="请输入用户名" />
+        </div>
+
+        <!-- 密码输入框（密码类型，输入时隐藏字符） -->
+        <div class="form-item">
+          <input type="password" id="loginPwd" placeholder="请输入密码" />
+        </div>
+
+        <!-- 错误提示区域：由JS动态显示验证信息 -->
+        <div class="tip" id="loginTip"></div>
+
+        <!-- 登录按钮（点击触发表单提交验证） -->
+        <button id="loginBtn" class="btn-primary submit-btn">立即登录</button>
+
+        <!-- 底部链接：跳转到注册页面 -->
+        <div class="form-foot">
+          还没有账号？<a href="register.html">立即注册</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================
+         底部信息区域（所有页面公用）
+         包含四列信息：联系我们、服务保障、帮助中心、关注我们
+         ================================================================ -->
+    <div class="footer" id="footer">
+      <div class="container footer-content">
+        <!-- 第一列：联系我们 -->
+        <div class="footer-col">
+          <h4>联系我们</h4>
+          <p>客服热线：400-888-9999</p>
+          <p>邮箱：service@huayang.com</p>
+          <p>地址：浙江省绍兴市越城区</p>
+        </div>
+
+        <!-- 第二列：服务保障 -->
+        <div class="footer-col">
+          <h4>服务保障</h4>
+          <p>新鲜直达</p>
+          <p>售后无忧</p>
+          <p>品质保证</p>
+        </div>
+
+        <!-- 第三列：帮助中心 -->
+        <div class="footer-col">
+          <h4>帮助中心</h4>
+          <p>购物流程</p>
+          <p>配送说明</p>
+          <p>退换货政策</p>
+        </div>
+
+        <!-- 第四列：关注我们 -->
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <p>微信公众号：花漾时光</p>
+          <p>微博：@花漾时光花艺</p>
+          <p>小红书：花漾时光</p>
+        </div>
+      </div>
+
+      <!-- 版权声明行（包含班级、学号、姓名） -->
+      <div class="footer-copyright">
+        <p>
+          © 花漾时光 Floral Time 版权所有 | 班级：大数据241 学号：24536101
+          姓名：陈荟蓉
+        </p>
+      </div>
+    </div>
+
+    <!-- ================================================================
+         引入页面脚本
+         ================================================================ -->
+    <!-- 公共脚本：数据加载、购物车、用户管理、地址、订单等 -->
+    <script src="scripts/common.js"></script>
+    <!-- 登录脚本：登录验证、表单提交、注册逻辑等 -->
+    <script src="scripts/login.js"></script>
+  </body>
+</html>

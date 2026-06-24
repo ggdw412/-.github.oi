@@ -1,0 +1,359 @@
+/* ===== index.css - 首页样式 ===== */
+.banner {
+  margin: 20px 0;
+}
+.banner-box {
+  position: relative;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eaf4fc 0%, #d9e8f5 100%);
+  box-shadow: 0 8px 24px rgba(58, 139, 205, 0.15);
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.slide.active {
+  opacity: 1;
+}
+.slide-text {
+  max-width: 520px;
+}
+.s-sub {
+  color: #5a7184;
+  font-size: 22px;
+  letter-spacing: 5px;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+.s-title {
+  font-size: 60px;
+  font-weight: 500;
+  color: #2c5282;
+  letter-spacing: 10px;
+  margin-bottom: 18px;
+  white-space: nowrap;
+}
+.s-desc {
+  color: #718daa;
+  font-size: 17px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.slide-img img {
+  height: 340px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(58, 139, 205, 0.2);
+}
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(58, 139, 205, 0.3);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active {
+  background: #3a8bcd;
+  width: 24px;
+  border-radius: 5px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: rgba(58, 139, 205, 0.2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.arrow:hover {
+  background: rgba(58, 139, 205, 0.4);
+}
+.arrow.prev {
+  left: 20px;
+}
+.arrow.next {
+  right: 20px;
+}
+
+.sec-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2c5282;
+  margin: 50px 0 30px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+.cate-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.cate-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(58, 139, 205, 0.1);
+  border: 2px solid transparent;
+}
+.cate-item:hover,
+.cate-item.active {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(58, 139, 205, 0.2);
+  border-color: #3a8bcd;
+}
+.cate-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.cate-item p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c5282;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.cate-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(58, 139, 205, 0.06);
+}
+.cate-filter-bar .filter-item {
+  padding: 6px 18px;
+  border-radius: 20px;
+  background: #f0f5fa;
+  color: #5a7184;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+.cate-filter-bar .filter-item:hover {
+  background: #d9e8f5;
+  color: #2b6fa8;
+}
+.cate-filter-bar .filter-item.active {
+  background: #3a8bcd;
+  color: #fff;
+  border-color: #3a8bcd;
+  box-shadow: 0 2px 8px rgba(58, 139, 205, 0.25);
+}
+
+.goods-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.goods-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0edf8;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.goods-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(58, 139, 205, 0.18);
+  border-color: #9fc8e8;
+}
+.goods-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.goods-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.goods-card:hover .goods-img img {
+  transform: scale(1.08);
+}
+.flower-lang {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 12px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(30, 58, 95, 0.8) 100%
+  );
+  color: #fff;
+  font-size: 13px;
+  line-height: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  letter-spacing: 1px;
+}
+.goods-card:hover .flower-lang {
+  opacity: 1;
+  transform: translateY(0);
+}
+.flower-lang::before {
+  content: "💐 花语";
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+.goods-info {
+  padding: 16px;
+  text-align: center;
+}
+.goods-name {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.goods-price {
+  font-size: 20px;
+  color: #e74c3c;
+  font-weight: 600;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+.buy-btn {
+  width: 100%;
+  height: 36px;
+  border: none;
+  background: linear-gradient(90deg, #3a8bcd 0%, #5aa3db 100%);
+  color: #fff;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.buy-btn:hover {
+  background: linear-gradient(90deg, #2b6fa8 0%, #3a8bcd 100%);
+  box-shadow: 0 4px 10px rgba(58, 139, 205, 0.3);
+}
+.buy-btn.disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.buy-btn.disabled:hover {
+  background: #ccc;
+  box-shadow: none;
+}
+.sold-out-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e74c3c;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+.goods-card .goods-stock-info {
+  font-size: 12px;
+  color: #718daa;
+  margin-bottom: 6px;
+}
+
+.page-box {
+  text-align: center;
+  margin-top: 40px;
+}
+.page-btn,
+.page-num {
+  display: inline-block;
+  min-width: 36px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 14px;
+  margin: 0 4px;
+  border: 1px solid #c9e0f2;
+  border-radius: 18px;
+  cursor: pointer;
+  color: #5a7184;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.3s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.page-btn:hover,
+.page-num:hover {
+  border-color: #3a8bcd;
+  color: #3a8bcd;
+}
+.page-num.active {
+  background: #3a8bcd;
+  color: #fff;
+  border-color: #3a8bcd;
+}
+.page-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.no-data {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 0;
+  color: #718daa;
+  font-size: 16px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
